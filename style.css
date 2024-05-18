@@ -1931,6 +1931,9 @@ overflow: hidden;
 .pricing-containers .pricing-container1, .pricing-container2, .pricing-container3, .pricing-container4
 {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 30px;
     margin: 30px;
     width: 60%;
@@ -1938,6 +1941,12 @@ overflow: hidden;
     background:conic-gradient(at 0% 0%, snow, white);
     min-height: 60vh;
     min-height: 80svh;
+}
+
+.row{
+   display: flex;
+   align-items: center;
+   justify-content: center;
 }
 
 .price-info
@@ -1973,14 +1982,15 @@ overflow: hidden;
  
 }
 
+
+
 .divider{
   opacity: 0;
   width: 2px;
   height: 20em;
   background-color: #000;
   position: relative;
-  top: 6em;
-  left: 1em;
+
 }
 
 @keyframes scale-up-ver-top{
@@ -2026,7 +2036,7 @@ overflow: hidden;
     place-items: center; 
     border-radius: 10px; 
     border: 2px solid rgb(186, 245, 225);
-    left: 6em;
+    left: 1em;
 }
 
 .slide-track
@@ -2113,11 +2123,11 @@ overflow: hidden;
   transition: color 0.8s ease;
 }
 
-
-@media (max-width: 1487px){
-  .button{
-    right: 15em;
-  }
+@media (max-width: 1115px){
+	.row{
+	 flex-direction: column;
+         gap: 2em;
+	}
 }
 
 @media(max-width: 1177px) {
