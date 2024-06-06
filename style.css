@@ -7,10 +7,10 @@
     font-family: 'karla','Poppins', sans-serif;
     
   }
-
 body 
 {
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     width: 100%;
     scroll-behavior: smooth;
 }
@@ -1933,11 +1933,20 @@ overflow: hidden;
     display: flex;
     gap: 30px;
     margin: 30px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     width: 60%;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), 5px 5px 10px rgba(0, 0, 0, 0.1);
     background:conic-gradient(at 0% 0%, snow, white);
     min-height: 60vh;
     min-height: 80svh;
+}
+
+.row{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .price-info
@@ -1973,14 +1982,15 @@ overflow: hidden;
  
 }
 
+
 .divider{
   opacity: 0;
   width: 2px;
   height: 20em;
   background-color: #000;
   position: relative;
-  top: 6em;
-  left: 1em;
+
+ 
 }
 
 @keyframes scale-up-ver-top{
@@ -2026,7 +2036,7 @@ overflow: hidden;
     place-items: center; 
     border-radius: 10px; 
     border: 2px solid rgb(186, 245, 225);
-    left: 6em;
+    left: 1em;
 }
 
 .slide-track
@@ -2085,47 +2095,119 @@ overflow: hidden;
     }
 }
 
+.button-div{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .button{
-  background-image: linear-gradient(135deg, #008aff, #86d472);
+
+  background-image: linear-gradient(135deg, rgba(0, 138, 255, 0.8), rgba(134, 212, 114, 1));
   border-radius: 6px;
   box-sizing: border-box;
   color: black;
-  display: block;
+  display: inline-block;
   text-align: center;
-  height: 50px;
+  height: 45px;
   font-size: 1.4em;
   font-weight: 600;
   padding: 10px;
   position: relative;
   text-decoration: none;
-  width: 6em;
+  width: 4em;
   margin: 1em;
   z-index: 2;
   position: relative;
-  top: 18.5em;
-  right: 18.7em;
- 
+
+  box-shadow: inset 0 0 35px 0px rgba(0, 0, 0, 0.25),
+  inset 0 2px 1px 1px rgba(255, 255, 255, 0),
+  1px 1px 15px 2px rgba(154, 137, 164, 0.5);
+}
+
+.button-div p{
+  font-weight: 600;
+  background: linear-gradient(to right, #031386 0%, #008AFF 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 .button:hover {
   color: #fff;
-  border: 2px solid rgb(85, 84, 84);
   transition: color 0.8s ease;
+  box-shadow: inset 0 0 35px 0px rgba(0, 0, 0, 0.15),
+  inset 0 2px 1px 1px rgba(255, 255, 255, 0),
+  1px 1px 15px 2px rgba(154, 137, 164, 0.1);
 }
 
+.telephone{
+  width: 25%;
+}
 
-@media (max-width: 1487px){
-  .button{
-    right: 15em;
+.buttons button{
+
+    padding: 1.2em 2em;
+    border-radius: 15px;
+    border: none;
+    font-size: 1.1em;
+    font-weight: 500;
+    margin: 8px;
+    font-family: "Roboto";
+    background-color: #e0e1dd;
+    cursor: pointer;
+
+
+}
+
+.visible{
+  display: flex;
+ }
+ 
+ .hidden{
+ display: none;
+ }
+
+/*Footer*/
+
+
+footer{
+  background-color: #000;
+  position: relative;
+  bottom: 0;
+  height: 50vh;
+  width: 100%;
+  padding-left: 3em;
+  color: white;
+  font-size: 1.3em;
+  line-height: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+footer p{
+  pointer-events: none;
+  transform: translateX(-50px);
+  transition: transform 500ms cubic-bezier(0,0,0.5,1), opacity 500ms cubic-bezier(0,0,0.5,1), visibility 500ms cubic-bezier(0,0,0.5,1);
+}
+/*///////////////////////////////////////*/
+
+@media(max-width: 1115px){
+  .row{
+    flex-direction: column;
+    gap: 2em;
   }
+ 
 }
+
 
 @media(max-width: 1177px) {
-  #pricing-container1, #pricing-container2, #pricing-container3, #pricing-container4{
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+
   .slider{
     left: 0;
   }
@@ -2150,6 +2232,12 @@ overflow: hidden;
     width: 15em;
     top: 0;
    
+  }
+}
+
+@media (max-width: 630px){
+  .button-div{
+    flex-direction: column;
   }
 }
 
@@ -2183,6 +2271,7 @@ overflow: hidden;
 .about-us
 {
   display: flex;
+  flex-direction: column;
   position: absolute;
   top: 0;
   height: 100vh;
@@ -2215,6 +2304,7 @@ overflow: hidden;
   align-items: center;
   justify-content: space-between;
   position: relative;
+  margin-bottom: 5em;
 }
 
 .text

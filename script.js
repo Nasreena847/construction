@@ -60,6 +60,7 @@ function container1() {
     var contactSection = document.getElementById('contact');
     contactSection.classList.toggle('active');
     hideSidebar();
+
 }
 
 document.addEventListener('click', function (e) {
@@ -166,3 +167,87 @@ applyAnimation()
 document.addEventListener('DOMContentLoaded', applyAnimation);
 window.addEventListener('resize', applyAnimation);
 
+
+
+
+const textContainers = document.querySelectorAll('.text-fade');
+
+const textContainer = function(){
+// Options for the IntersectionObserver
+const options = {
+root: null, // use the viewport as the root
+rootMargin: '0px', // no margin
+threshold: 0.5 // trigger when half of the text container is visible
+};
+
+// Callback function when a text container comes into view
+const callback = (entries, observer) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+  // Slide the text in
+  entry.target.style.opacity = '1'
+  entry.target.style.transform = 'translateX(0)'
+  entry.target.style.pointerEvents = 'auto'
+  // Stop observing since we don't need it anymore
+  observer.unobserve(entry.target);
+}
+});
+};
+
+// Create the IntersectionObserver for each text container
+textContainers.forEach(textContainer => {
+const observer = new IntersectionObserver(callback, options);
+observer.observe(textContainer);
+});
+}
+
+textContainer()
+
+function activeButton(){
+  console.log('active button fnc is active')
+      const goldBtn = document.getElementById('gold-btn');
+      const SilverBtn = document.getElementById('silver-btn');
+      const premiumBtn = document.getElementById('premium-btn');
+      const goldContent = document.getElementById('goldContent');
+      const silverContent = document.getElementById('silverContent');
+      const premiumContent = document.getElementById('premiumContent')
+    
+      // Function to add 'visible' class and remove 'hidden' class
+      const showContent = (element) => {
+          element.classList.remove('hidden');
+          element.classList.add('visible');
+      };
+  
+      // Function to add 'hidden' class and remove 'visible' class
+      const hideContent = (element) => {
+          element.classList.remove('visible');
+          element.classList.add('hidden');
+      };
+
+      showContent(premiumContent);
+      hideContent(goldContent);
+      hideContent(silverContent);
+     
+      goldBtn.addEventListener('click', function() {
+        showContent(goldContent);
+        hideContent(silverContent);
+        hideContent(premiumContent) 
+      });
+    
+      SilverBtn.addEventListener('click', function() {
+          hideContent(goldContent);
+        showContent(silverContent);
+        hideContent(premiumContent)
+      });
+  
+      premiumBtn.addEventListener('click', function() {
+        console.log('focus button clicked')
+        hideContent(goldContent);
+        showContent(premiumContent);
+        hideContent(silverContent);
+       
+     });
+
+     
+  }
+activeButton()
