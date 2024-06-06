@@ -1931,6 +1931,9 @@ overflow: hidden;
 .pricing-containers .pricing-container1, .pricing-container2, .pricing-container3, .pricing-container4
 {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 30px;
     margin: 30px;
     align-items: center;
@@ -1944,9 +1947,15 @@ overflow: hidden;
 }
 
 .row{
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
 }
 
 .price-info
@@ -1990,7 +1999,7 @@ overflow: hidden;
   background-color: #000;
   position: relative;
 
- 
+
 }
 
 @keyframes scale-up-ver-top{
@@ -2143,6 +2152,7 @@ overflow: hidden;
   1px 1px 15px 2px rgba(154, 137, 164, 0.1);
 }
 
+
 .telephone{
   width: 25%;
 }
@@ -2202,7 +2212,14 @@ footer p{
     flex-direction: column;
     gap: 2em;
   }
- 
+}
+
+@media (max-width: 1115px){
+	.row{
+	 flex-direction: column;
+         gap: 2em;
+	}
+
 }
 
 
