@@ -203,51 +203,81 @@ observer.observe(textContainer);
 
 textContainer()
 
-function activeButton(){
-  console.log('active button fnc is active')
-      const goldBtn = document.getElementById('gold-btn');
-      const SilverBtn = document.getElementById('silver-btn');
-      const premiumBtn = document.getElementById('premium-btn');
-      const goldContent = document.getElementById('goldContent');
-      const silverContent = document.getElementById('silverContent');
-      const premiumContent = document.getElementById('premiumContent')
-    
-      // Function to add 'visible' class and remove 'hidden' class
-      const showContent = (element) => {
-          element.classList.remove('hidden');
-          element.classList.add('visible');
-      };
-  
-      // Function to add 'hidden' class and remove 'visible' class
-      const hideContent = (element) => {
-          element.classList.remove('visible');
-          element.classList.add('hidden');
-      };
 
-      showContent(premiumContent);
-      hideContent(goldContent);
-      hideContent(silverContent);
-     
-      goldBtn.addEventListener('click', function() {
+
+function activeButton(cardId, goldBtnId, silverBtnId, premiumBtnId, goldContentId, silverContentId, premiumContentId, goldPriceId, silverPriceId, premiumPriceId) {
+  const card = document.querySelector(`#${cardId}`);
+  const goldBtn = card.querySelector(`#${goldBtnId}`);
+  const silverBtn = card.querySelector(`#${silverBtnId}`);
+  const premiumBtn = card.querySelector(`#${premiumBtnId}`);
+  
+  const goldContent = card.querySelector(`#${goldContentId}`);
+  const silverContent = card.querySelector(`#${silverContentId}`);
+  const premiumContent = card.querySelector(`#${premiumContentId}`);
+
+  const goldPrice = card.querySelector(`#${goldPriceId}`);
+  const silverPrice = card.querySelector(`#${silverPriceId}`);
+  const premiumPrice = card.querySelector(`#${premiumPriceId}`);
+
+  // Function to add 'visible' class and remove 'hidden' class
+  const showContent = (element) => {
+      element.classList.remove('hidden');
+      element.classList.add('visible');
+  };
+
+  // Function to add 'hidden' class and remove 'visible' class
+  const hideContent = (element) => {
+      element.classList.remove('visible');
+      element.classList.add('hidden');
+  };
+
+  const activateButton = (button) => {
+      card.querySelectorAll('button').forEach(btn => btn.classList.remove('active-btn'));
+      button.classList.add('active-btn');
+  };
+
+    showContent(premiumContent);
+    showContent(premiumPrice)
+    hideContent(goldContent);
+    hideContent(goldPrice)
+    hideContent(silverContent);
+    hideContent(silverPrice)
+  activateButton(premiumBtn);
+
+    goldBtn.addEventListener('click', function () {
         showContent(goldContent);
+        showContent(goldPrice)
         hideContent(silverContent);
-        hideContent(premiumContent) 
-      });
-    
-      SilverBtn.addEventListener('click', function() {
-          hideContent(goldContent);
-        showContent(silverContent);
-        hideContent(premiumContent)
-      });
-  
-      premiumBtn.addEventListener('click', function() {
-        console.log('focus button clicked')
-        hideContent(goldContent);
-        showContent(premiumContent);
-        hideContent(silverContent);
-       
-     });
+        hideContent(premiumContent);
+        hideContent(premiumPrice)
+        hideContent(silverPrice)
+        activateButton(goldBtn);
+  });
 
-     
-  }
-activeButton()
+  silverBtn.addEventListener('click', function () {
+      hideContent(goldContent);
+      hideContent(goldPrice)
+      showContent(silverContent);
+      showContent(silverPrice);
+      hideContent(premiumContent);
+      hideContent(premiumPrice)
+      activateButton(silverBtn);
+  });
+
+  premiumBtn.addEventListener('click', function () {
+      hideContent(goldContent);
+      hideContent(goldPrice)
+      showContent(premiumContent);
+      showContent(premiumPrice)
+      hideContent(silverContent);
+      hideContent(silverPrice)
+      activateButton(premiumBtn);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  activeButton('pricing-container1', 'gold-btn1', 'silver-btn1', 'premium-btn1', 'Container1-gold', 'Container1-silver', 'Container1-premium', 'gold-price1', 'silver-price1', 'premium-price1');
+    activeButton('pricing-container2', 'gold-btn2', 'silver-btn2', 'premium-btn2', 'Container2-gold', 'Container2-silver', 'Container2-premium', 'gold-price2', 'silver-price2', 'premium-price2');
+  activeButton('pricing-container3', 'gold-btn3', 'silver-btn3', 'premium-btn3', 'Container3-gold', 'Container3-silver', 'Container3-premium', 'gold-price3', 'silver-price3', 'premium-price3');
+  activeButton('pricing-container4', 'gold-btn4', 'silver-btn4', 'premium-btn4', 'Container4-gold', 'Container4-silver', 'Container4-premium', 'gold-price4', 'silver-price4', 'premium-price4');
+});

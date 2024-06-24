@@ -1958,11 +1958,16 @@ overflow: hidden;
 
 }
 
+.price-info-div{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
 .price-info
 {
  display: flex;
  min-width: 30%;
- width: 50%;
  padding: 20px; /* Adjust the padding as needed */
  justify-content: center;
  text-align: center;
@@ -2157,71 +2162,167 @@ overflow: hidden;
   width: 25%;
 }
 
-.buttons button{
+.buttons{
+  width: 100%;
+  display: flex;
+  align-items: start;
+ 
+  justify-content: start;
+  position: relative;
 
-    padding: 1.2em 2em;
-    border-radius: 15px;
+}
+
+.buttons button{
+   
+    border-radius: 30px;
     border: none;
     font-size: 1.1em;
     font-weight: 500;
+    text-align: center;
     margin: 8px;
-    font-family: "Roboto";
-    background-color: #e0e1dd;
     cursor: pointer;
-
-
 }
+
+
+.gold {
+  background-image: linear-gradient(to right top, #e9d264, #d3d362, #bbd464, #a2d469, #86d472);
+  border-radius: 6px;
+  box-sizing: border-box;
+  color: #ffffff;
+  display: block;
+  height: 50px;
+  font-size: 1.4em;
+  font-weight: 600;
+  padding: 4px;
+  position: relative;
+  text-decoration: none;
+  width: 7em;
+  z-index: 2;
+}
+
+ 
+ .gold:hover {
+  color: #fff;
+}
+
+ .gold p {
+  align-items: center;
+  background: #0e0e10;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  transition: background 0.5s ease;
+  width: 100%;
+}
+
+
+.gold:hover .span {
+  background: transparent;
+}
+
+.silver{
+  background-image: linear-gradient(to right bottom, #cbcac2, #c7caa9, #bbcd92, #a5d07f, #86d472);
+  border-radius: 6px;
+  box-sizing: border-box;
+  color: #ffffff;
+  display: block;
+  height: 50px;
+  font-size: 1.4em;
+  font-weight: 600;
+  padding: 4px;
+  position: relative;
+  text-decoration: none;
+  width: 7em;
+  z-index: 2;
+}
+
+.silver:hover {
+  color: #fff;
+}
+
+.silver p {
+  align-items: center;
+  background: #0e0e10;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  transition: background 0.5s ease;
+  width: 100%;
+}
+
+.silver:hover .span {
+  background: transparent;
+}
+
+.premium{
+  background-image: linear-gradient(135deg, #008aff, #86d472);
+  border-radius: 6px;
+  box-sizing: border-box;
+  color: #ffffff;
+  display: block;
+  height: 50px;
+  font-size: 1.4em;
+  font-weight: 600;
+  padding: 4px;
+  position: relative;
+  text-decoration: none;
+  width: 7em;
+  z-index: 2;
+}
+
+.premium:hover {
+  color: #fff;
+}
+
+.premium p {
+  align-items: center;
+  background: #0e0e10;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  transition: background 0.5s ease;
+  width: 100%;
+}
+
+.premium:hover .span {
+  background: transparent;
+}
+
 
 .visible{
   display: flex;
+  flex-direction: column;
  }
  
  .hidden{
- display: none;
+ display: none !important;
  }
 
-/*Footer*/
+ .Content2, .Content1{
+  display: none;
+ }
 
-
-footer{
-  background-color: #000;
-  position: relative;
-  bottom: 0;
-  height: 50vh;
-  width: 100%;
-  padding-left: 3em;
-  color: white;
-  font-size: 1.3em;
-  line-height: 2em;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: center;
-  flex-shrink: 0;
+ .active-btn{
+    background: linear-gradient(#082F78 0%, rgb(100, 97, 225) 100%);
+    color: #fff;
+    transition: background color 1s ease-out;
 }
-
-footer p{
-  pointer-events: none;
-  transform: translateX(-50px);
-  transition: transform 500ms cubic-bezier(0,0,0.5,1), opacity 500ms cubic-bezier(0,0,0.5,1), visibility 500ms cubic-bezier(0,0,0.5,1);
-}
-/*///////////////////////////////////////*/
 
 @media(max-width: 1115px){
   .row{
     flex-direction: column;
     gap: 2em;
   }
+  .price-info-div{
+    width: 100%;
+  }
+  .buttons{
+    flex-wrap: wrap;
+  }
 }
-
-@media (max-width: 1115px){
-	.row{
-	 flex-direction: column;
-         gap: 2em;
-	}
-
-}
-
 
 @media(max-width: 1177px) {
 
@@ -2248,8 +2349,8 @@ footer p{
   .divider{
     width: 15em;
     top: 0;
-   
   }
+
 }
 
 @media (max-width: 630px){
@@ -2264,6 +2365,7 @@ footer p{
   }
 }*/
 
+
 @media (max-width: 500px){
   .slider{
     width: 200px;
@@ -2276,10 +2378,17 @@ footer p{
   }
 }
 
+
 @media (max-width: 460px){
   .divider{
     width: 13em;
     transition: all 0.5s ease-in;
+  }
+}
+
+@media(max-width: 420px){
+  .price-info h3{
+    font-size: 20px;
   }
 }
 
@@ -2677,3 +2786,26 @@ footer p{
 }
 }
         
+
+footer{
+  background-color: #000;
+  position: relative;
+  bottom: 0;
+  height: 50vh;
+  width: 100%;
+  padding-left: 3em;
+  color: white;
+  font-size: 1.3em;
+  line-height: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+footer p{
+  pointer-events: none;
+  transform: translateX(-50px);
+  transition: transform 500ms cubic-bezier(0,0,0.5,1), opacity 500ms cubic-bezier(0,0,0.5,1), visibility 500ms cubic-bezier(0,0,0.5,1);
+}
